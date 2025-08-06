@@ -15,6 +15,7 @@
 					placeholder="咯咯哥哥🐓"
 					@focus="changeImage(1)"
 					@blur="changeImage(0)"
+					v-model="question"
 				/>
 
 				<!-- 图像根据 isBlur 切换（睁眼/闭眼） -->
@@ -42,14 +43,31 @@
 					weekday: 'long',
 			  })}}
 			</view>
+			<view class="ai-response">
+			  {{ loading ? '⏳ 正在思考中…' : answer }}
+			</view>
 		</view>
 	</view>
 </template>
 
 <script setup>
 // 引入 Vue 的响应式工具
-import { ref,onMounted,onUnmounted} from 'vue'
+import { watch,ref,onMounted,onUnmounted} from 'vue'
 
+
+// 模拟答案库
+const dataBase = ref([
+    "鸡你太美",
+    "你干嘛~哎哟",
+    "唱、跳、rap、篮球",
+    "ikun永相随",
+    "练习时长两年半",
+    "只因你太美",
+    "这篮球打得真不错啊",
+    "小黑子露出鸡脚了吧",
+    "你看这个面它又长又宽",
+    "我是练习生蔡徐坤"
+])
 
 // 控制图像睁眼/闭眼状态（true = 睁眼）
 const isBlur = ref(true)
@@ -57,10 +75,32 @@ const isBlur = ref(true)
 // 当前时间
 const timeNow = ref(Date.now())
 
+// 问题
+const question = ref('')
+
+// 加载
+const loading = ref(false)
+
+// 回答
+const answer = ref('')
+
+
 // 输入框焦点事件控制图像切换
 function changeImage(v) {
 	isBlur.value = v !== 1 // v为1时睁眼，其它为闭眼
 }
+
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms))
+
+async function run() {
+  console.log('开始')
+  await sleep(1000)  // 等待 1 秒（1000 毫秒）
+  console.log('1 秒后执行')
+}
+
+
+
+
 let timer = null
 
 onMounted(() => {
@@ -76,6 +116,40 @@ onUnmounted(() => {
     clearInterval(timer)
   }
 })
+
+//监听问题是否出现
+watch(question, async (newQuestion, oldQuestion, onCleanup) => {
+  let cleaned = false
+
+  // 注册清理函数
+  onCleanup(() => {
+    cleaned = true
+  })
+	
+  if(newQuestion == ''){
+	  loading.value = true
+		
+	  await run()
+	  if(!cleaned){
+		  answer.value = '你好我是练习两年半的个人练习生坤坤。'
+	  }
+	  loading.value = false
+  }
+  if (newQuestion.includes('?') || newQuestion.includes('？')) {
+    loading.value = true
+
+    await run()  // 必须等待 run() 执行完，才判断 cleaned
+
+    if (!cleaned) {
+      answer.value = dataBase.value[Math.floor(Math.random() * dataBase.value.length)]
+      console.log(answer.value)
+
+    }
+
+    loading.value = false
+  }
+})
+
 </script>
 
 <style lang="scss" scoped>
