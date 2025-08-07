@@ -61,6 +61,13 @@
 			{
 				"navigationBarTitleText" : "socket"
 			}
+		},
+		{
+			"path" : "pages/DetailPage/DetailPage",
+			"style" : 
+			{
+				"navigationBarTitleText" : "详情页"
+			}
 		}
 	],
 	"globalStyle": {

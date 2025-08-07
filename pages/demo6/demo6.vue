@@ -1,19 +1,17 @@
 <template>
-	<view class="out">
-		<view class="box" v-for="(item,index) in newsList" :key="index">
-		  <h3 class="title">
-			<svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-			  <path d="M341.333333 725.333333h298.666667V298.666667H256v426.666666h85.333333z m-170.666666 0V213.333333h554.666666v128h128v384c0 46.933333-38.4 85.333333-85.333333 85.333334H256c-46.933333 0-85.333333-38.4-85.333333-85.333334z m554.666666-298.666666v277.333333c0 12.8 8.533333 21.333333 21.333334 21.333333s21.333333-8.533333 21.333333-21.333333V426.666667h-42.666667zM298.666667 341.333333h298.666666v85.333334H298.666667V341.333333z m0 128h298.666666v85.333334H298.666667v-85.333334z m0 128h213.333333v85.333334H298.666667v-85.333334z" fill="#444444"></path>
-			</svg>
-			<span>{{ index + 1 }}. {{ item.title }}</span>
-		  </h3>
-		  <p>{{ item.summary }}</p>
-		</view>
-	</view>
+
+	<detail-page-vue 
+		v-for="news in newsList" 
+		:title="news.title" 
+		:summary="news.summary"
+		>
+	</detail-page-vue>
 
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import DetailPageVue from '../DetailPage/DetailPage.vue';
 
 const newsList = [
   {
