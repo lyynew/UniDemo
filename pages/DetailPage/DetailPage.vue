@@ -16,11 +16,13 @@
       <view class="font-size-display" v-if="showFontSizeTip">
         📐 当前摘要字体大小：<text>{{ summaryfont }}rpx</text>
       </view>
+	  <slot></slot>
 
       <!-- 字体调整按钮 -->
       <view class="btn">
         <button type="default" size="mini" @click="enSmall()">-</button>
         <button type="primary" size="mini" @click="enlarge()">+</button>
+		<button type="default" size="default" @click="()=> emit('boom',666)"></button>
       </view>
     </view>
   </view>
@@ -30,6 +32,7 @@
 import { ref } from 'vue'
 
 defineProps(['title', 'summary'])
+defineEmits('boom')
 
 const titlefont = ref(20)
 const summaryfont = ref(15)

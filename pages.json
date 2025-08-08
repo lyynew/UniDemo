@@ -68,6 +68,13 @@
 			{
 				"navigationBarTitleText" : "详情页"
 			}
+		},
+		{
+			"path" : "pages/activeComponent/activeComponent",
+			"style" : 
+			{
+				"navigationBarTitleText" : "动态组件"
+			}
 		}
 	],
 	"globalStyle": {

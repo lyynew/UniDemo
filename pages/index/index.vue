@@ -7,6 +7,9 @@
 		<view class="nav-item" hover-class="nav-item-hover">
 			<navigator url="/pages/Search/Search">坤搜</navigator>
 		</view>
+		<view class="nav-item" hover-class="nav-item-hover">
+			<navigator url="/pages/activeComponent/activeComponent">动态组件</navigator>
+		</view>
         <view class="nav-item" hover-class="nav-item-hover">
           <navigator url="/pages/demo1/demo1">Demo1</navigator>
         </view>
@@ -25,6 +28,7 @@
 		<view class="nav-item" hover-class="nav-item-hover">
 			<navigator url="/pages/demo6/demo6">Demo6</navigator>
 		</view>
+
       </scroll-view>
     </view>
 
@@ -42,6 +46,7 @@
         <image :src="item" mode="aspectFill" />
       </swiper-item>
     </swiper>
+	<component1/>
   </view>
 </template>
 

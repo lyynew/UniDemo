@@ -1,19 +1,24 @@
 <template>
-
+<view class="layout">
 	<detail-page-vue 
 		v-for="news in newsList" 
 		:title="news.title" 
 		:summary="news.summary"
+		@boom='Boom'
 		>
+		666
 	</detail-page-vue>
-
+</view>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import DetailPageVue from '../DetailPage/DetailPage.vue';
 
+
 const newsList = [
+	
+
   {
     title: "全球首个商用核聚变发电站在法国正式启动",
     summary: "该发电站由多国联合研发，预计年发电量可达100亿千瓦时，将为清洁能源领域带来革命性突破，有望在2030年前实现商业化运营。"
@@ -55,48 +60,13 @@ const newsList = [
     summary: "该作家的作品聚焦中国乡村变迁，以细腻的笔触描绘了城镇化进程中农民的生活与情感，评委称其“为世界文学提供了独特的东方视角”。"
   }
 ];
+
+function Boom(val){
+	alert(val)
+}
 </script>
 
 <style lang="scss" scoped>
-.out {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20rpx;
-  justify-content: center;
-  padding: 20rpx;
-}
 
-.box {
-  width: 500rpx;
-  height: 350rpx;
-  padding: 20rpx;
-  background-color: lightblue;
-  border-radius: 15rpx;
-
-  .title {
-    display: flex;
-    align-items: center;
-    gap: 10rpx;
-    font-size: 30rpx;
-    font-weight: bold;
-    margin-bottom: 10rpx;
-  }
-
-  .icon {
-    width: 32rpx;
-    height: 32rpx;
-    flex-shrink: 0;
-  }
-
-  p {
-    text-indent: 2em;
-    font-size: 26rpx;
-    line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-}
 
 </style>
