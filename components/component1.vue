@@ -1,5 +1,5 @@
 <template>
-	<view class="box">
+	<view class="box1">
 		<h1>这是组件1</h1>
 		<slot></slot>
 	</view>
@@ -10,7 +10,7 @@
 </script>
 
 <style lang="scss">
-.box{
+.box1{
 	width: 200rpx;
 	height: 200rpx;
 	background-color: darkolivegreen;

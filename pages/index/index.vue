@@ -28,6 +28,21 @@
 		<view class="nav-item" hover-class="nav-item-hover">
 			<navigator url="/pages/demo6/demo6">Demo6</navigator>
 		</view>
+		<view class="nav-item" hover-class="nav-item-hover">
+			<navigator url="/pages/demo7/demo7Father">Demo7</navigator>
+		</view>
+		<view class="nav-item" hover-class="nav-item-hover">
+			<navigator url="/pages/demo9/demo9">热耿</navigator>
+		</view>
+		<view class="nav-item" hover-class="nav-item-hover">
+			<navigator url="/pages/demo10/demo10">compute</navigator>
+		</view>
+		<view class="nav-item" hover-class="nav-item-hover">
+			<navigator url="/pages/chat/chat">chat</navigator>
+		</view>
+		<view class="nav-item" hover-class="nav-item-hover">
+			<navigator url="/pages/demo11/demo11">demo11</navigator>
+		</view>
 
       </scroll-view>
     </view>

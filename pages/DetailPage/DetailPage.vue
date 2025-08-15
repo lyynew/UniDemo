@@ -32,7 +32,7 @@
 import { ref } from 'vue'
 
 defineProps(['title', 'summary'])
-defineEmits('boom')
+const emit = defineEmits('boom')
 
 const titlefont = ref(20)
 const summaryfont = ref(15)
